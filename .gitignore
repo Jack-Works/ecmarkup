@@ -6,3 +6,4 @@ package
 ecmarkup-*.tgz
 .vscode/
 docs/
+*.tsbuildinfo
