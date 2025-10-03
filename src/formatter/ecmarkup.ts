@@ -1,5 +1,5 @@
 import { parse } from 'parse5';
-import type { Attribute, TextNode, CommentNode, Node, Element } from 'parse5';
+import type { Attribute, TextNode, CommentNode, Node, Element, ChildNode } from 'parse5';
 import { parseAlgorithm, parseFragment } from 'ecmarkdown';
 import * as dedent from 'dedent-js';
 import { LineBuilder } from './line-builder';
@@ -355,9 +355,9 @@ export async function printElement(
   return output;
 }
 
-async function printChildNodes(
+export async function printChildNodes(
   src: string,
-  nodes: Node[],
+  nodes: ChildNode[],
   dropLeadingLinebreaks: boolean,
   dropTrailingLinebreaks: boolean,
   indent: number,
