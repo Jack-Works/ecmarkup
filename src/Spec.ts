@@ -1347,7 +1347,7 @@ ${this.opts.multipage ? `<li><span>Navigate to/from multipage</span><code>m</cod
     Object.assign(this.opts, data);
   }
 
-  private async loadBiblios() {
+  public async loadBiblios() {
     this.cancellationToken.throwIfCancellationRequested();
     const biblioPaths = [];
     for (const biblioEle of this.doc.querySelectorAll('emu-biblio')) {
@@ -1693,7 +1693,7 @@ ${copyright}`;
     return licenseClause;
   }
 
-  private generateSDOMap() {
+  public generateSDOMap() {
     const sdoMap = Object.create(null);
 
     this.log('Building SDO map...');
@@ -2072,7 +2072,7 @@ function getBoilerplate(file: string) {
   return fs.readFileSync(boilerplateFile, 'utf8');
 }
 
-async function walk(walker: TreeWalker, context: Context) {
+export async function walk(walker: TreeWalker, context: Context) {
   const previousInNoAutolink = context.inNoAutolink;
   let previousInNoEmd = context.inNoEmd;
   const { spec } = context;
